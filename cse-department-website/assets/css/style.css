@@ -1,0 +1,91 @@
+/* Custom styles with Tailwind utilities and animations */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'Poppins', sans-serif;
+    @apply bg-gray-50 text-gray-800;
+}
+
+.navbar {
+    @apply bg-gradient-to-r from-blue-600 to-indigo-700 shadow-lg fixed w-full z-50;
+}
+
+.navbar-brand, .nav-link {
+    @apply text-white hover:text-yellow-300 transition-colors duration-300;
+}
+
+.hero {
+    @apply bg-gradient-to-r from-blue-600 to-indigo-700 text-white text-center py-20;
+}
+
+.card {
+    @apply rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 shadow-md;
+}
+
+.card-img-top {
+    @apply w-full h-48 object-cover;
+}
+
+.carousel-item {
+    @apply py-4 flex items-center justify-center;
+}
+
+footer {
+    @apply bg-gradient-to-r from-gray-800 to-gray-900 text-white py-8;
+}
+
+footer a {
+    @apply hover:text-yellow-300 transition-colors duration-300;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+.animate-slide-up {
+    animation: slideUp 1s ease-out;
+}
+
+.animate-bounce {
+    animation: bounce 2s infinite;
+}
+
+.animation-delay-200 { animation-delay: 0.2s; }
+.animation-delay-400 { animation-delay: 0.4s; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar-nav {
+        @apply flex flex-col items-center;
+    }
+    .hero h1 {
+        @apply text-4xl;
+    }
+    .hero p {
+        @apply text-lg;
+    }
+    .card-img-top {
+        @apply h-36;
+    }
+    .grid-cols-3 {
+        @apply grid-cols-1;
+    }
+}
